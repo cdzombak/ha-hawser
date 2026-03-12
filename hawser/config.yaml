@@ -28,7 +28,6 @@ options:
   port: 2376
   bind_address: ""
   token: ""
-  dockhand_server_url: ""
   agent_name: ""
   log_level: info
   tls_cert: ""

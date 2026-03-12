@@ -33,11 +33,11 @@ if bashio::var.true "${SKIP_DF}"; then
 fi
 
 if [ "${MODE}" = "edge" ]; then
-  DOCKHAND_SERVER_URL=$(bashio::config 'dockhand_server_url')
-  if ! bashio::var.has_value "${DOCKHAND_SERVER_URL}"; then
+  if ! bashio::config.has_value 'dockhand_server_url'; then
     bashio::log.fatal "Edge mode requires dockhand_server_url to be set"
     bashio::exit.nok
   fi
+  DOCKHAND_SERVER_URL=$(bashio::config 'dockhand_server_url')
   export DOCKHAND_SERVER_URL
 
   if ! bashio::var.has_value "${TOKEN}"; then
