@@ -1,0 +1,52 @@
+name: Hawser
+description: >-
+  Dockhand remote Docker management agent. Allows Dockhand to manage the
+  Docker instance running on your Home Assistant host.
+version: 0.2.37
+slug: hawser
+url: "https://github.com/Finsys/hawser"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+startup: application
+boot: auto
+init: false
+
+docker_api: true
+
+ports:
+  2376/tcp: null
+ports_description:
+  2376/tcp: "Hawser API (standard mode only)"
+
+map:
+  - ssl:ro
+
+options:
+  mode: standard
+  port: 2376
+  bind_address: ""
+  token: ""
+  dockhand_server_url: ""
+  agent_name: ""
+  log_level: info
+  tls_cert: ""
+  tls_key: ""
+  skip_df_collection: false
+  heartbeat_interval: 30
+  request_timeout: 30
+
+schema:
+  mode: "list(standard|edge)"
+  port: "port?"
+  bind_address: "str?"
+  token: "str?"
+  dockhand_server_url: "url?"
+  agent_name: "str?"
+  log_level: "list(debug|info|warn|error)"
+  tls_cert: "str?"
+  tls_key: "str?"
+  skip_df_collection: "bool?"
+  heartbeat_interval: "int(1,3600)?"
+  request_timeout: "int(1,300)?"
