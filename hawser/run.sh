@@ -47,14 +47,9 @@ if [ "${MODE}" = "edge" ]; then
 
   bashio::log.info "Starting Hawser in edge mode -> ${DOCKHAND_SERVER_URL}"
 else
-  export PORT=$(bashio::config 'port')
+  export PORT=2376
 
-  BIND_ADDRESS=$(bashio::config 'bind_address')
-  if bashio::var.has_value "${BIND_ADDRESS}"; then
-    export BIND_ADDRESS
-  else
-    export BIND_ADDRESS="0.0.0.0"
-  fi
+  export BIND_ADDRESS="0.0.0.0"
 
   TLS_CERT=$(bashio::config 'tls_cert')
   TLS_KEY=$(bashio::config 'tls_key')

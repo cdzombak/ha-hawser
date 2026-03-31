@@ -18,12 +18,8 @@ Dockhand installation.
 Hawser listens for incoming connections from Dockhand. Use this when your HA instance
 is directly reachable from your Dockhand server (e.g. on the same LAN).
 
-Set **mode** to `standard` and configure the **port** (default `2376`). You will need
-to expose this port in the add-on's network configuration.
-
-You can set **bind_address** to restrict which network interface Hawser listens on
-(e.g. `192.168.1.10` or `127.0.0.1`). By default, it listens on all interfaces
-(`0.0.0.0`).
+Set **mode** to `standard`. Hawser listens on port `2376` inside the container; use the
+add-on's network configuration to map it to a different host port if needed.
 
 For production use, configure TLS by placing your certificate and key files in the
 `/ssl` directory and setting **tls_cert** and **tls_key** to the filenames.
@@ -41,8 +37,6 @@ Set **mode** to `edge`, provide the **dockhand_server_url** (e.g.
 | Option | Description |
 |---|---|
 | `mode` | `standard` or `edge` |
-| `port` | Listen port for standard mode (default: `2376`) |
-| `bind_address` | Listen address for standard mode (default: all interfaces) |
 | `token` | Authentication token (required for edge mode, optional for standard) |
 | `dockhand_server_url` | Dockhand WebSocket URL (required for edge mode) |
 | `agent_name` | Human-readable name for this agent (default: hostname) |

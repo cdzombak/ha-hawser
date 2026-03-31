@@ -25,8 +25,6 @@ map:
 
 options:
   mode: standard
-  port: 2376
-  bind_address: ""
   token: ""
   agent_name: ""
   log_level: info
@@ -38,8 +36,6 @@ options:
 
 schema:
   mode: "list(standard|edge)"
-  port: "port?"
-  bind_address: "str?"
   token: "str?"
   dockhand_server_url: "url?"
   agent_name: "str?"
